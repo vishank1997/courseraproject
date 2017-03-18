@@ -1,0 +1,9 @@
+
+
+<%= link_to 'Login', '/users/sign_in' %>
+<% if user_signed_in? %>
+  
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  
+<% end %>
+to show all the courses
