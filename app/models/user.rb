@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :subscriptions
+  has_many :courses, through: :subscriptions
+
+
+
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,6 +31,20 @@ end
       end
     end
   end
+
+def enrolled? (course)
+    user = current_user
+    subscriptions = Subscription.find_by_user_id(user.id)
+    if subscriptions.teacher_id == course
+      return true
+    else 
+      return false   
+    end  
+end  
+
+
+
+
 
 
 end

@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+  #post 'course/single_course_post'
   
+  
+  get 'course/single_course'
+
+  post 'course/enroll_now'
+  
+  post 'course/unenroll'
+
+
+  #get 'course/index'
+
   devise_for :teachers
   
 
@@ -7,7 +18,7 @@ Rails.application.routes.draw do
 
 
 
-  get '/' => 'home#index'
+  get '/' => 'course#index'
 
 
   
