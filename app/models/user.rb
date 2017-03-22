@@ -32,14 +32,8 @@ end
     end
   end
 
-def enrolled? (course)
-    user = current_user
-    subscriptions = Subscription.find_by_user_id(user.id)
-    if subscriptions.teacher_id == course
-      return true
-    else 
-      return false   
-    end  
+def enrolled? (course_id)
+  self.courses.find_by_id(course_id).nil? ? true : false 
 end  
 
 

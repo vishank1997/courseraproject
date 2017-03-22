@@ -50,7 +50,7 @@ class CourseController < ApplicationController
     course = Course.find_by_id(params[:course_id])
     subscription = Subscription.new
     subscription.user_id = user.id
-    subscription.teacher_id = course.id
+    subscription.course_id = course.id
     subscription.save
     return redirect_to "/course/single_course?id=#{course.id}"
   end 
@@ -58,7 +58,7 @@ class CourseController < ApplicationController
     user = User.find_by_id(current_user.id)
     course = Course.find_by_id(params[:course_id])
     subscription = Subscription.find_by_user_id(user.id)
-    if (subscription.teacher_id == course.id)
+    if (subscription.course_id == course.id)
         subscription.delete
     end
     return redirect_to "/course/single_course?id=#{course.id}"
