@@ -1,0 +1,26 @@
+<% #@usercourse.each do |usercourse|%>
+<!--<%= @usercourse %>-->
+<%#end%>
+<% @course.each do|course| %>
+<% if @usercourse.include? course.id%>
+	<% #course.title %>
+	<%= course.title %>
+	<a href= "<%= course.homepage %>" >homepage </a>
+	<img src="<%= course.image %>" height = "42" widht = "42" >
+	<%= course.teaser_video %>
+	<%= course.banner_image %>
+	<%= course.required_knowledge %>
+	<%= course.sallybus %>
+	<%= course.faq %>
+	<form action = "/course/unenroll" method="POST">
+	<input type="hidden" name="course_id" value="<%= course.id %>">
+	<button type="submit">Unenroll</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<br>
+	<%byebug%>
+
+	<%end%>
+<%end%>

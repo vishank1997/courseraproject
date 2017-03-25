@@ -10,7 +10,6 @@
 <% if current_user.enrolled? @courses.id %>
 <form action = "/course/enroll_now" method="POST">
 <input type="hidden" name="course_id" value="<%= @courses.id %>">
-<input type="hidden" name="bool" value="1">
 <button type="submit">enroll now</button>
 </form>
 <%else%>

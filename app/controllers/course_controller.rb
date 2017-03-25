@@ -1,11 +1,7 @@
 class CourseController < ApplicationController
    @find
-
-  
+   @usercourse =  Array.new
   before_action :authenticate_user!
-
-
-
 
   def index
   	
@@ -61,6 +57,15 @@ class CourseController < ApplicationController
     if (subscription.course_id == course.id)
         subscription.delete
     end
-    return redirect_to "/course/single_course?id=#{course.id}"
+    return redirect_to :back
   end
+  def user_courses
+    user = User.find_by_id(current_user.id)
+    subscriptions = Subscription.all.where(user_id =user.id)
+    @course = Course.all
+    @usercourse = Array.new
+    subscriptions.each do |subs|
+    @usercourse << subs.course_id
+    end
+  end  
 end

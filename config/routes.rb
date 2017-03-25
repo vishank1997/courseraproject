@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dis_course/index'
+
   #post 'course/single_course_post'
   
   
@@ -18,7 +20,10 @@ Rails.application.routes.draw do
 
 
 
-  get '/' => 'course#index'
+  get '/' => 'dis_course#index'
+
+
+  get 'course/user_courses'
 
 
   
