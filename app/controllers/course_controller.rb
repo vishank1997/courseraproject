@@ -53,12 +53,19 @@ class CourseController < ApplicationController
   def unenroll
     user = User.find_by_id(current_user.id)
     course = Course.find_by_id(params[:course_id])
-    subscription = Subscription.find_by_user_id(user.id)
-    if (subscription.course_id == course.id)
-        subscription.delete
+    subscriptions = Subscription.all.where(user_id = user.id, course_id = course.id)
+    subscriptions.each do |subs|
+      #byebug
+      if subs.course_id == course.id
+          hello = 1
+          subs.delete
+      end  
     end
+    #byebug
+    #subscription = Subscription.where(course_id = usercourse)
     return redirect_to :back
   end
+
   def user_courses
     user = User.find_by_id(current_user.id)
     subscriptions = Subscription.all.where(user_id =user.id)
