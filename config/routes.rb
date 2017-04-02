@@ -2,32 +2,30 @@ Rails.application.routes.draw do
   get 'dis_course/index'
 
   #post 'course/single_course_post'
-  
-  
+    
   get 'course/single_course'
 
   post 'course/enroll_now'
   
   post 'course/unenroll'
 
+  get 'teacher_add_course/addcourse_get'
+
+  get 'teacher_add_course/displaycourse'
+
+  get 'teacher_add_course/enrolledstudents'
+
+  post 'teacher_add_course/addcourse'
 
   #get 'course/index'
-
+  
   devise_for :teachers
   
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
-
-
-  get '/' => 'dis_course#index'
-
-
-  get 'course/user_courses'
-
-
   
-
+  get '/' => 'dis_course#index'
+  
+  get 'course/user_courses'
 
  # devise_scope :user do
  # delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session

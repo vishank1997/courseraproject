@@ -24,7 +24,7 @@ class CourseController < ApplicationController
   	subscription = Subscription.new
     
     subscription.user_id = user.id
-  	subscription.teacher_id = course.id
+  	subscription.course_id = course.id
     subscription.save
     return redirect_to "/course/single_course?id=#{course.id}"
   end	
@@ -57,7 +57,7 @@ class CourseController < ApplicationController
     subscriptions.each do |subs|
       #byebug
       if subs.course_id == course.id
-          hello = 1
+          #hello = 1
           subs.delete
       end  
     end
