@@ -24,11 +24,17 @@ class TeacherAddCourseController < ApplicationController
 	def enrolledstudents
 		course = Course.where(teacher_id: current_teacher.id)
 		
-		byebug
-		subs = Array.new
-		while(course)
-		count = 0	
-		subs >> Subscription.where(course_id: course[count++].id)
+		
+		@subs = Array.new
+		count = 0
+		while(course[count])
+			byebug
+			@subs << Subscription.find_by_course_id(course[count].id)
+			
+			#Subscription.where(course_id = course[count].id)
+
+			
+			count = count + 1
 		end
 
 	end
