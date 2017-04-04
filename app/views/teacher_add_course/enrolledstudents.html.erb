@@ -1,3 +1,5 @@
 <% @subs.each do|subs| %>
 <%= subs.user_id %>
+<% user = User.find_by_id(subs.user_id) %>
+<%= user.email %>
 <% end %>

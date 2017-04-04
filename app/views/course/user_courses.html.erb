@@ -4,14 +4,14 @@
 <% @course.each do|course| %>
 <% if @usercourse.include? course.id%>
 	<% #course.title %>
-	<%= course.title %>
+	<a href="" ><%= course.title %></a>
 	<a href= "<%= course.homepage %>" >homepage </a>
 	<img src="<%= course.image %>" height = "42" widht = "42" >
-	<%= course.teaser_video %>
+	<!--<%= course.teaser_video %>
 	<%= course.banner_image %>
 	<%= course.required_knowledge %>
 	<%= course.sallybus %>
-	<%= course.faq %>
+	<%= course.faq %>-->
 	<form action = "/course/unenroll" method="POST">
 	<input type="hidden" name="course_id" value="<%= course.id %>">
 	<button type="submit">Unenroll</button>

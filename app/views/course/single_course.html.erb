@@ -2,7 +2,8 @@
 <%= @courses.title %>
 <a href= "<%= @courses.homepage %>" >homepage </a>
 <img src="<%= @courses.image %>" height = "42" widht = "42" >
-<%= @courses.teaser_video %>
+<iframe width="560" height="315" src="<%= @courses.teaser_video.sub('watch?v=','embed/') %>"   frameborder="0" allowfullscreen></iframe>
+<%= @courses.teaser_video.sub('watch?v=','embed/') %>
 <%= @courses.banner_image %>
 <%= @courses.required_knowledge %>
 <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL9W5T_Bs30cuefu1gaKx1ApPcUN7iGaR7" frameborder="0" allowfullscreen></iframe>

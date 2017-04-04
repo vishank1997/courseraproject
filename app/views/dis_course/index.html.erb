@@ -22,22 +22,24 @@
 <%end%>
 <br>
 <br>
-<br><br>
-
+<body>
 <% @all_courses.each do |course| %>
-<%= course.id %>
-<a href = "<link_to" ><%= course.title %></a>
-<a href= "<%= course.homepage %>" >homepage </a>
+<%= course.id %><h4><%= course.title %></h4><a href= "<%= course.homepage %>" >homepage </a>
 <form action = "/course/single_course" method="GET">
 <input type="hidden" name="id" value = "<%= course.id%>">
 <button><img src="<%= course.image %>" height = "42" widht = "42" ></button>
 </form>
-<html>
+
+<br>
+<br>
+<br>
+<br>
+
+</body>
+<!--
 <body>
 <%= course.summary %>
 </body>
-</html>
-<br><br>
-<br><br>
-<br>
+-->
+
 <%end%>
