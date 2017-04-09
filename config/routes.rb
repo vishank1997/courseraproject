@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   get 'dis_course/index'
 
+  get 'course/user_course_running'
+
+  #post'course/user_course_running_post'
+  
   #post 'course/single_course_post'
+
+  post 'teacher_add_course/add_lecture'
     
   get 'course/single_course'
 

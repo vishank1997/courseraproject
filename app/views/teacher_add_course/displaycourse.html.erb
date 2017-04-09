@@ -1,3 +1,14 @@
+
+
 <% @teacher_courses.each do|course| %>
+
+<%= course.id %>	
 <%= course.title%>
+<form action="/teacher_add_course/add_lecture" method="POST">
+<input type="hidden" name="id" value="<%= course.id %>">
+<input type="text" name="youtube_url">
+<button type = "submit"> Add Video </button>
+<br>
+</form>
+<br>
 <% end %>

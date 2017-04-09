@@ -1,0 +1,16 @@
+<%= @user.email %>
+<br>
+<%= @course.title %>
+<%= @course.teaser_video %>
+<%= @course.banner_image %>
+<%= @course.required_knowledge %>
+<%= @course.sallybus %>
+<%= @course.faq %>
+<br>
+<br>
+<br>
+<br>
+<button>video 1</button>
+<% @lecture.each do |lecture| %>
+<iframe width="560" height="315" src="<%= lecture.video_link %>"   frameborder="0" allowfullscreen></iframe>
+<% end %>

@@ -32,4 +32,15 @@ class TeacherAddCourseController < ApplicationController
 			count = count + 1
 		end
 	end
+
+	def add_lecture
+		course_id = params[:id]
+		youtube_link =  params[:youtube_url]
+		youtube_link = youtube_link.sub('watch?v=','embed/')
+		lecture = Lecture.new
+		lecture.video_link = youtube_link
+		lecture.course_id = course_id
+		lecture.save
+		return redirect_to :back
+	end	
 end
